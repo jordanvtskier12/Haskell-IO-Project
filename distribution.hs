@@ -31,4 +31,30 @@
     * Letters that do not occur in the text are not listed in the output at all.
 -}
 
-main = putStrLn "Put your program here!"
+
+import Data.List
+import Data.Char 
+
+
+--wordz = map (:[]) ['a'..'z'] 
+wordz = ['a'..'z']
+
+
+lowerString str = [ toLower loweredString | loweredString <- str]
+
+main = do
+    putStrLn "Please enter a string of text (the bigger the better): "
+    line <-getLine
+    let lline = lowerString line
+    do putStrLn (whole wordz lline)
+
+
+
+whole w l = 
+        if null w then "" else filter (== head w) (l) 
+            ++ "\n" ++ (whole (tail w) l) 
+
+
+
+    
+    
